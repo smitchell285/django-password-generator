@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+
+  </head>
+  <body>
+    <nav class='navbar bg-light navbar-expand-lg navbar-light'>
+
+      <a class='navbar-brand' href="{% url 'home' %}">PasswordGenerator</a>
+      <ul class='nav nav-tabs justify-content-end'>
+      <li class='nav-item'><a class='nav-link' href="{% url 'about' %}">About</a></li>
+    </ul>
+    </nav>
+    {% block body_block %}
+    <div class="container">
+      <h1>Password Generator</h1>
+      <div class="choices">
+        <form action="{% url 'password' %}">
+          <select name="length">
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+            <option value="13">13</option>
+            <option value="14">14</option>
+
+          </select> Length
+          <p></p>
+          <p>Check any that apply:</p>
+          <ul>
+          <li><input type="checkbox" name="uppercase"> Uppercase</li>
+
+          <li><input type="checkbox" name="numbers"> Numbers</li>
+          <li><input type="checkbox" name="specialcharacters"> Speacial Characters</li>
+        </ul>
+          <input type="submit" class='btn btn-primary' value="Generate">
+        </form>
+      </div>
+
+    </div>
+    {% endblock %}
+  </body>
+</html>
